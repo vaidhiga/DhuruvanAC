@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AC Products | BUSINESS_NAME</title>
+    <meta name="description" content="Browse split, inverter, window, residential and commercial AC options. Compare brand, capacity and pricing." />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/data/business.js"></script>
+    <script src="/data/products.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="/" class="brand"><span class="brand-mark">AC</span><span data-business-name>Dhuruvan Air Conditioner Service Center</span></a>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="/about">About</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/offers">Offers</a></li>
+            <li><a href="/brands">Brands</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a class="button secondary" data-phone href="tel:7373329885">Call Now</a>
+          <a class="button primary" href="/quote">Get a Quote</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <span class="eyebrow">AC products</span>
+          <h1>Find the right AC for your space</h1>
+        </div>
+      </section>
+
+      <section class="page-content">
+        <div class="container">
+          <div class="filter-bar">
+            <div class="filter-group">
+              <label for="filter-brand">Brand</label>
+              <select id="filter-brand">
+                <option value="all">All brands</option>
+                <option value="Voltas">Voltas</option>
+                <option value="Carrier">Carrier</option>
+                <option value="Hitachi">Hitachi</option>
+                <option value="Blue Star">Blue Star</option>
+                <option value="Mitsubishi Heavy Duty">Mitsubishi Heavy Duty</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-type">AC type</label>
+              <select id="filter-type">
+                <option value="all">All types</option>
+                <option value="Split AC">Split AC</option>
+                <option value="Window AC">Window AC</option>
+                <option value="Inverter AC">Inverter AC</option>
+                <option value="Commercial AC">Commercial AC</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="filter-capacity">Capacity</label>
+              <select id="filter-capacity">
+                <option value="all">All capacities</option>
+                <option value="1 Ton">1 Ton</option>
+                <option value="1.5 Ton">1.5 Ton</option>
+                <option value="2 Ton">2 Ton</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="search-product">Search</label>
+              <input id="search-product" type="search" placeholder="Search model or brand" />
+            </div>
+          </div>
+          <div class="product-grid" id="catalog-products"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-bottom">
+        <span>© <span data-business-name>Dhuruvan Air Conditioner Service Center</span></span>
+        <span>Designed for mobile-first AC customers</span>
+      </div>
+    </footer>
+
+    <div class="mobile-cta">
+      <div class="mobile-cta-inner">
+        <a class="button primary" data-phone href="tel:7373329885">Call</a>
+        <a class="button secondary" href="/quote">Quote</a>
+        <a class="button ghost" href="https://wa.me/7373329885" data-whatsapp target="_blank" rel="noreferrer">WhatsApp</a>
+      </div>
+    </div>
+
+    <script>
+      const products = window.AC_PRODUCTS || [];
+      const catalog = document.getElementById('catalog-products');
+      const brandFilter = document.getElementById('filter-brand');
+      const typeFilter = document.getElementById('filter-type');
+      const capacityFilter = document.getElementById('filter-capacity');
+      const searchInput = document.getElementById('search-product');
+
+      function renderProducts() {
+        const brand = brandFilter.value;
+        const type = typeFilter.value;
+        const capacity = capacityFilter.value;
+        const search = searchInput.value.trim().toLowerCase();
+
+        const filtered = products.filter((product) => {
+          const matchesBrand = brand === 'all' || product.brand === brand;
+          const matchesType = type === 'all' || product.acType === type;
+          const matchesCapacity = capacity === 'all' || product.capacity === capacity;
+          const matchesSearch = !search || `${product.brand} ${product.model}`.toLowerCase().includes(search);
+          return matchesBrand && matchesType && matchesCapacity && matchesSearch;
+        });
+
+        catalog.innerHTML = filtered.map((product) => `
+          <article class="product-card">
+            <div class="product-image" style="background-image: url('${product.image || '/images/logo-placeholder.svg'}');"></div>
+            <div class="product-info">
+              <div class="product-topline">
+                <span class="product-brand">${product.brand}</span>
+                <span class="product-rating">★ ${product.starRating}</span>
+              </div>
+              <h3>${product.model}</h3>
+              <div class="meta-list">
+                <span class="meta-pill">${product.acType}</span>
+                <span class="meta-pill">${product.capacity}</span>
+                <span class="meta-pill">${product.inverter ? 'Inverter' : 'Non-Inverter'}</span>
+              </div>
+              <ul class="features-list">
+                ${product.features.map((feature) => `<li>${feature}</li>`).join('')}
+              </ul>
+              <div class="price-row">
+                <strong>${product.price}</strong>
+                <span>${product.offerPrice}</span>
+              </div>
+              <p class="price-note">For more details, contact WhatsApp</p>
+              <div class="card-actions">
+                <a class="button primary" href="/quote">Get Quote</a>
+                <a class="button ghost" href="https://wa.me/7373329885" data-whatsapp target="_blank" rel="noreferrer">WhatsApp</a>
+              </div>
+            </div>
+          </article>
+        `).join('') || '<p>No products match your selected filters.</p>';
+      }
+
+      brandFilter.addEventListener('change', renderProducts);
+      typeFilter.addEventListener('change', renderProducts);
+      capacityFilter.addEventListener('change', renderProducts);
+      searchInput.addEventListener('input', renderProducts);
+      renderProducts();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get a Quote | BUSINESS_NAME</title>
+    <meta name="description" content="Request a quote for your next AC purchase. Share your brand, capacity, budget and requirements." />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/data/business.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/forms.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="/" class="brand"><span class="brand-mark">AC</span><span data-business-name>Dhuruvan Air Conditioner Service Center</span></a>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="/about">About</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/offers">Offers</a></li>
+            <li><a href="/brands">Brands</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a class="button secondary" data-phone href="tel:7373329885">Call Now</a>
+          <a class="button primary" href="/book-service">Book Service</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <span class="eyebrow">Get a quote</span>
+          <h1>Tell us what AC you need</h1>
+        </div>
+      </section>
+
+      <section class="page-content">
+        <div class="container">
+          <div class="form-card">
+            <form id="quote-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="customerName">Customer Name <span class="required">*</span></label>
+                  <input id="customerName" name="customerName" type="text" required />
+                </div>
+                <div class="form-group">
+                  <label for="phoneNumber">Phone Number <span class="required">*</span></label>
+                  <input id="phoneNumber" name="phoneNumber" type="tel" placeholder="e.g. +91 98765 43210" required />
+                </div>
+                <div class="form-group">
+                  <label for="location">Location <span class="required">*</span></label>
+                  <input id="location" name="location" type="text" required />
+                </div>
+                <div class="form-group">
+                  <label for="preferredBrand">Preferred Brand <span class="required">*</span></label>
+                  <select id="preferredBrand" name="preferredBrand" required>
+                    <option value="">Select a brand</option>
+                    <option value="Voltas">Voltas</option>
+                    <option value="Carrier">Carrier</option>
+                    <option value="Hitachi">Hitachi</option>
+                    <option value="Blue Star">Blue Star</option>
+                    <option value="Mitsubishi Heavy Duty">Mitsubishi Heavy Duty</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="acType">AC Type <span class="required">*</span></label>
+                  <select id="acType" name="acType" required>
+                    <option value="">Select AC type</option>
+                    <option value="Split AC">Split AC</option>
+                    <option value="Inverter AC">Inverter AC</option>
+                    <option value="Window AC">Window AC</option>
+                    <option value="Residential AC">Residential AC</option>
+                    <option value="Commercial AC">Commercial AC</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="capacity">Capacity <span class="required">*</span></label>
+                  <select id="capacity" name="capacity" required>
+                    <option value="">Select capacity</option>
+                    <option value="1 Ton">1 Ton</option>
+                    <option value="1.5 Ton">1.5 Ton</option>
+                    <option value="2 Ton">2 Ton</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="budget">Budget <span class="required">*</span></label>
+                  <input id="budget" name="budget" type="text" placeholder="e.g. ₹40,000 - ₹60,000" required />
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                  <label for="requirement">Requirement / Message <span class="required">*</span></label>
+                  <textarea id="requirement" name="requirement" required></textarea>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="button primary" type="submit">Get Quote</button>
+              </div>
+              <div class="form-status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-bottom">
+        <span>© <span data-business-name>Dhuruvan Air Conditioner Service Center</span></span>
+        <span>Request a quote in minutes</span>
+      </div>
+    </footer>
+  </body>
+</html>

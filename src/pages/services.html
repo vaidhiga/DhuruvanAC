@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AC Services | BUSINESS_NAME</title>
+    <meta name="description" content="AC service, repair, installation, cleaning, gas support and AMC plans for homes and businesses." />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/data/business.js"></script>
+    <script src="/data/services.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="/" class="brand"><span class="brand-mark">AC</span><span data-business-name>Dhuruvan Air Conditioner Service Center</span></a>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="/about">About</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/offers">Offers</a></li>
+            <li><a href="/brands">Brands</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a class="button secondary" data-phone href="tel:7373329885">Call Now</a>
+          <a class="button primary" href="/quote">Get a Quote</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <span class="eyebrow">Services</span>
+          <h1>AC care for every need</h1>
+        </div>
+      </section>
+
+      <section class="page-content">
+        <div class="container">
+          <div class="service-grid" id="services-page-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-bottom">
+        <span>© <span data-business-name>Dhuruvan Air Conditioner Service Center</span></span>
+        <span>Fast support for every AC issue</span>
+      </div>
+    </footer>
+
+    <div class="mobile-cta">
+      <div class="mobile-cta-inner">
+        <a class="button primary" data-phone href="tel:7373329885">Call</a>
+        <a class="button secondary" href="/book-service">Book</a>
+        <a class="button ghost" href="https://wa.me/7373329885" data-whatsapp target="_blank" rel="noreferrer">WhatsApp</a>
+      </div>
+    </div>
+
+    <script>
+      const services = window.AC_SERVICES || [];
+      const grid = document.getElementById('services-page-grid');
+      if (grid) {
+        grid.innerHTML = services.map((service) => `
+          <article class="service-card">
+            <div class="service-icon">${service.icon}</div>
+            <h3>${service.title}</h3>
+            <p>${service.description}</p>
+            <a class="button primary" href="/book-service">${service.ctaLabel}</a>
+          </article>
+        `).join('');
+      }
+    </script>
+  </body>
+</html>

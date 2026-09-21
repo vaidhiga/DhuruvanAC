@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520" role="img" aria-label="AC Product Placeholder 5">
+  <rect width="800" height="520" fill="#f0fdf4"/>
+  <rect x="140" y="150" width="520" height="200" rx="30" fill="#16a34a"/>
+  <rect x="210" y="112" width="380" height="82" rx="18" fill="#bbf7d0"/>
+  <rect x="190" y="355" width="420" height="34" rx="12" fill="#86efac"/>
+  <circle cx="250" cy="372" r="18" fill="#f0fdf4"/>
+  <circle cx="548" cy="372" r="18" fill="#f0fdf4"/>
+  <text x="400" y="70" text-anchor="middle" font-size="34" font-weight="700" fill="#0f172a" font-family="Arial, Helvetica, sans-serif">AC PRODUCT</text>
+</svg>

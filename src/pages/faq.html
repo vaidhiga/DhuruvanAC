@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ | BUSINESS_NAME</title>
+    <meta name="description" content="Frequently asked questions about AC sales, installation, repair and service bookings." />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/data/business.js"></script>
+    <script src="/data/faqs.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="/" class="brand"><span class="brand-mark">AC</span><span data-business-name>Dhuruvan Air Conditioner Service Center</span></a>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="/about">About</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/offers">Offers</a></li>
+            <li><a href="/brands">Brands</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a class="button secondary" data-phone href="tel:7373329885">Call Now</a>
+          <a class="button primary" href="/quote">Get a Quote</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <span class="eyebrow">FAQ</span>
+          <h1>Common questions from customers</h1>
+        </div>
+      </section>
+
+      <section class="page-content">
+        <div class="container">
+          <div class="faq-grid" id="faq-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-bottom">
+        <span>© <span data-business-name>Dhuruvan Air Conditioner Service Center</span></span>
+        <span>Need more help? Call us anytime.</span>
+      </div>
+    </footer>
+
+    <script>
+      const faqs = window.AC_FAQS || [];
+      const grid = document.getElementById('faq-grid');
+      if (grid) {
+        grid.innerHTML = faqs.map((item) => `
+          <details class="faq-item" open>
+            <summary>${item.question}</summary>
+            <p>${item.answer}</p>
+          </details>
+        `).join('');
+      }
+    </script>
+  </body>
+</html>

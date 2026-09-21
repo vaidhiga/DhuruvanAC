@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book AC Service | BUSINESS_NAME</title>
+    <meta name="description" content="Book AC service, repair, cleaning, gas support, installation or maintenance for your AC unit." />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/data/business.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/forms.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="/" class="brand"><span class="brand-mark">AC</span><span data-business-name>Dhuruvan Air Conditioner Service Center</span></a>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="/about">About</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/offers">Offers</a></li>
+            <li><a href="/brands">Brands</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a class="button secondary" data-phone href="tel:7373329885">Call Now</a>
+          <a class="button primary" href="/quote">Get a Quote</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <span class="eyebrow">Book service</span>
+          <h1>Schedule your AC service or repair</h1>
+        </div>
+      </section>
+
+      <section class="page-content">
+        <div class="container">
+          <div class="form-card">
+            <form id="service-form">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="serviceCustomerName">Customer Name <span class="required">*</span></label>
+                  <input id="serviceCustomerName" name="customerName" type="text" required />
+                </div>
+                <div class="form-group">
+                  <label for="servicePhoneNumber">Phone Number <span class="required">*</span></label>
+                  <input id="servicePhoneNumber" name="phoneNumber" type="tel" required />
+                </div>
+                <div class="form-group">
+                  <label for="serviceLocation">Location <span class="required">*</span></label>
+                  <input id="serviceLocation" name="location" type="text" required />
+                </div>
+                <div class="form-group">
+                  <label for="acBrand">AC Brand <span class="required">*</span></label>
+                  <select id="acBrand" name="acBrand" required>
+                    <option value="">Select brand</option>
+                    <option value="Voltas">Voltas</option>
+                    <option value="Carrier">Carrier</option>
+                    <option value="Hitachi">Hitachi</option>
+                    <option value="Blue Star">Blue Star</option>
+                    <option value="Mitsubishi Heavy Duty">Mitsubishi Heavy Duty</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="serviceRequired">Service Required <span class="required">*</span></label>
+                  <select id="serviceRequired" name="serviceRequired" required>
+                    <option value="">Select service</option>
+                    <option value="AC Service">AC Service</option>
+                    <option value="AC Repair">AC Repair</option>
+                    <option value="AC Installation">AC Installation</option>
+                    <option value="AC Cleaning">AC Cleaning</option>
+                    <option value="Gas Service">Gas Service</option>
+                    <option value="AMC / Maintenance">AMC / Maintenance</option>
+                    <option value="Commercial AC Service">Commercial AC Service</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="acProblem">AC Problem <span class="required">*</span></label>
+                  <input id="acProblem" name="acProblem" type="text" required />
+                </div>
+                <div class="form-group">
+                  <label for="preferredDate">Preferred Date <span class="required">*</span></label>
+                  <input id="preferredDate" name="preferredDate" type="date" required />
+                </div>
+                <div class="form-group">
+                  <label for="preferredTime">Preferred Time <span class="required">*</span></label>
+                  <input id="preferredTime" name="preferredTime" type="time" required />
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                  <label for="additionalMessage">Additional Message</label>
+                  <textarea id="additionalMessage" name="additionalMessage"></textarea>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="button primary" type="submit">Book Service</button>
+              </div>
+              <div class="form-status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-bottom">
+        <span>© <span data-business-name>Dhuruvan Air Conditioner Service Center</span></span>
+        <span>Your comfort, our service</span>
+      </div>
+    </footer>
+  </body>
+</html>

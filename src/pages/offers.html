@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Offers | BUSINESS_NAME</title>
+    <meta name="description" content="Seasonal offers on AC purchase, installation, and maintenance support." />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/data/business.js"></script>
+    <script src="/data/offers.js"></script>
+    <script src="/js/config.js"></script>
+    <script src="/js/app.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container navbar">
+        <a href="/" class="brand"><span class="brand-mark">AC</span><span data-business-name>Dhuruvan Air Conditioner Service Center</span></a>
+        <nav>
+          <ul class="nav-menu">
+            <li><a href="/about">About</a></li>
+            <li><a href="/products">Products</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/offers">Offers</a></li>
+            <li><a href="/brands">Brands</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a class="button secondary" data-phone href="tel:7373329885">Call Now</a>
+          <a class="button primary" href="/quote">Get a Quote</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <span class="eyebrow">Offers</span>
+          <h1>Current deals and special savings</h1>
+        </div>
+      </section>
+
+      <section class="page-content">
+        <div class="container">
+          <div class="offer-grid" id="offers-page-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-bottom">
+        <span>© <span data-business-name>Dhuruvan Air Conditioner Service Center</span></span>
+        <span>Save on cooling comfort</span>
+      </div>
+    </footer>
+
+    <script>
+      const offers = window.AC_OFFERS || [];
+      const grid = document.getElementById('offers-page-grid');
+      if (grid) {
+        grid.innerHTML = offers.map((offer) => `
+          <article class="offer-card">
+            <span class="badge">${offer.badge}</span>
+            <h3>${offer.title}</h3>
+            <p>${offer.description}</p>
+            <a class="button primary" href="/quote">Get Offer Details</a>
+          </article>
+        `).join('');
+      }
+    </script>
+  </body>
+</html>

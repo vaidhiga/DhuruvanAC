@@ -1,0 +1,22 @@
+{
+  "name": "ac-business-website",
+  "version": "1.0.0",
+  "description": "Professional AC sales and service website for Render deployment",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js"
+  },
+  "keywords": [
+    "air-conditioner",
+    "ac-services",
+    "render",
+    "website"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  }
+}

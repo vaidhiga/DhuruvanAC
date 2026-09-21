@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://your-domain.com/</loc>
+  </url>
+  <url>
+    <loc>https://your-domain.com/about</loc>
+  </url>
+  <url>
+    <loc>https://your-domain.com/products</loc>
+  </url>
+  <url>
+    <loc>https://your-domain.com/services</loc>
+  </url>
+  <url>
+    <loc>https://your-domain.com/offers</loc>
+  </url>
+  <url>
+    <loc>https://your-domain.com/brands</loc>
+  </url>
+  <url>
+    <loc>https://your-domain.com/reviews</loc>
+  </url>
+  <url>
+    <loc>https://your-domain.com/faq</loc>
+  </url>
+  <url>
+    <loc>https://your-domain.com/contact</loc>
+  </url>
+  <url>
+    <loc>https://your-domain.com/quote</loc>
+  </url>
+  <url>
+    <loc>https://your-domain.com/book-service</loc>
+  </url>
+</urlset>
