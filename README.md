@@ -25,17 +25,6 @@ A production-ready AC sales and service website for a local business, designed f
 - `data/bookings.db` — local SQLite database created automatically on first run
 - `.env.example` — environment variable template
 
-## Local run
-
-1. Open the project folder
-2. Install dependencies:
-   npm install
-3. Start the server:
-   npm start
-4. Open: http://localhost:3000
-
-To manage enquiries locally, open: http://localhost:3000/admin
-
 Bookings begin with `new` status and can be changed to `confirmed`, `scheduled`, `completed` or `cancelled` from the admin dashboard.
 
 ## Configuration
