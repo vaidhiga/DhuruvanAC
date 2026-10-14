@@ -1,5 +1,15 @@
 {
   "version": 2,
+  "functions": {
+    "api/index.js": {
+      "includeFiles": [
+        "src/**",
+        "public/**",
+        "robots.txt",
+        "sitemap.xml"
+      ]
+    }
+  },
   "rewrites": [
     { "source": "/(.*)", "destination": "/api" }
   ]

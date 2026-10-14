@@ -63,7 +63,7 @@ This avoids backend API credentials for the first version. If you later want off
 5. Add environment variables from `.env.example` as needed.
 6. Deploy the project.
 
-Note: SQLite is fine for a small demo or low-traffic site, but it is not durable across serverless cold starts or redeployments. For production at scale, move bookings to a managed database such as PostgreSQL or Supabase.
+On Vercel, SQLite uses the function's temporary `/tmp` directory so the serverless function can start; booking data can be lost when the function instance is replaced. Use a managed database such as PostgreSQL or Supabase for durable production booking storage.
 
 ## Production notes
 

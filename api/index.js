@@ -5,7 +5,7 @@ const sqlite3 = require('sqlite3').verbose();
 const serverless = require('serverless-http');
 
 const app = express();
-const dataDir = path.join(__dirname, '..', 'data');
+const dataDir = process.env.VERCEL ? '/tmp' : path.join(__dirname, '..', 'data');
 const dbPath = path.join(dataDir, 'bookings.db');
 
 if (!fs.existsSync(dataDir)) {
@@ -58,14 +58,14 @@ function isSafeFilePath(filePath) {
   return filePath && !filePath.includes('..');
 }
 
-function sendStaticFile(req, res, directory) {
-  const relativePath = decodeURIComponent(req.path).replace(/^\/+/, '');
+function sendStaticFile(relativePath, res, directory) {
+  const safeRelativePath = decodeURIComponent(relativePath || '');
 
-  if (!isSafeFilePath(relativePath)) {
+  if (!isSafeFilePath(safeRelativePath)) {
     return res.status(400).send('Invalid file path.');
   }
 
-  const filePath = path.join(directory, relativePath);
+  const filePath = path.join(directory, safeRelativePath);
   if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
     return sendFile(res, filePath);
   }
@@ -82,19 +82,19 @@ app.get('/sitemap.xml', (req, res) => {
 });
 
 app.get('/css/*', (req, res) => {
-  sendStaticFile(req, res, path.join(__dirname, '..', 'src', 'css'));
+  sendStaticFile(req.params[0], res, path.join(__dirname, '..', 'src', 'css'));
 });
 
 app.get('/js/*', (req, res) => {
-  sendStaticFile(req, res, path.join(__dirname, '..', 'src', 'js'));
+  sendStaticFile(req.params[0], res, path.join(__dirname, '..', 'src', 'js'));
 });
 
 app.get('/data/*', (req, res) => {
-  sendStaticFile(req, res, path.join(__dirname, '..', 'src', 'data'));
+  sendStaticFile(req.params[0], res, path.join(__dirname, '..', 'src', 'data'));
 });
 
 app.get('/images/*', (req, res) => {
-  sendStaticFile(req, res, path.join(__dirname, '..', 'public', 'images'));
+  sendStaticFile(req.params[0], res, path.join(__dirname, '..', 'public', 'images'));
 });
 
 app.get('/', (req, res) => {
