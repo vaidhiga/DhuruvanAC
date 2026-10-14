@@ -2,12 +2,7 @@
   "version": 2,
   "functions": {
     "api/index.js": {
-      "includeFiles": [
-        "src/**",
-        "public/**",
-        "robots.txt",
-        "sitemap.xml"
-      ]
+      "includeFiles": "{src/**,public/**,robots.txt,sitemap.xml}"
     }
   },
   "rewrites": [
