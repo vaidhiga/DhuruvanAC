@@ -2,7 +2,6 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
-const serverless = require('serverless-http');
 
 const app = express();
 const dataDir = '/tmp';
@@ -341,4 +340,4 @@ app.get('*', (req, res) => {
   return res.status(404).send('Not found');
 });
 
-module.exports = serverless(app);
+module.exports = app;
