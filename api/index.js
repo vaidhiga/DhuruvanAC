@@ -5,7 +5,7 @@ const sqlite3 = require('sqlite3').verbose();
 const serverless = require('serverless-http');
 
 const app = express();
-const dataDir = process.env.VERCEL ? '/tmp' : path.join(__dirname, '..', 'data');
+const dataDir = '/tmp';
 const dbPath = path.join(dataDir, 'bookings.db');
 
 if (!fs.existsSync(dataDir)) {
