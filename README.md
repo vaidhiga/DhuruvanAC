@@ -54,17 +54,16 @@ This project uses WhatsApp click-to-chat by default:
 
 This avoids backend API credentials for the first version. If you later want official WhatsApp Business API automation, you will need a WhatsApp Business account, backend credentials, and server-side setup.
 
-## Render deployment
+## Vercel deployment
 
 1. Push this project to GitHub.
-2. In Render, choose New Web Service.
-3. Connect the GitHub repository.
-4. Set the build command to: `npm install`
-5. Set the start command to: `npm start`
-6. Add environment variables from `.env.example` as needed.
-7. Deploy the service.
+2. Import the repository in Vercel.
+3. Keep the default project settings and ensure the root directory is the project root.
+4. Vercel will detect the Node app automatically and use the `vercel.json` rewrite to route requests to the serverless function in `api/index.js`.
+5. Add environment variables from `.env.example` as needed.
+6. Deploy the project.
 
-The SQLite file must be stored on a persistent Render disk, or replaced with a managed database such as PostgreSQL, otherwise bookings can be lost when the service restarts or redeploys.
+Note: SQLite is fine for a small demo or low-traffic site, but it is not durable across serverless cold starts or redeployments. For production at scale, move bookings to a managed database such as PostgreSQL or Supabase.
 
 ## Production notes
 
